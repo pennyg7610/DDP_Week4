@@ -1,19 +1,17 @@
 
 library(shiny)
 
-vars <- names(iris)
 
 
 pageWithSidebar(
-    headerPanel('Iris Summary Calculations'),
-    sidebarPanel(
-        selectInput('xcol', 'X Variable', vars[5] ),
-        selectInput('ycol', 'Y Variable', vars, selected = vars[[3]])
-   
-    ),
-    mainPanel(
+    h1('Iris Summary Calculations'),
+ 
+        selectInput(inputId = "species_list", 
+                    label = "Choose Species", 
+                    list("setosa","virginica", "versicolor" )),
 
-        column(5, "Choose a Y Variable on the side panel to display a simple box plot summary calculation of the data by species."),
+  
         plotOutput('plot1')
     )
-)
+
+
