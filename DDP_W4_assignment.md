@@ -1,8 +1,15 @@
-Developing Data Products
-Week 4 assignment
+
+Developing Data Products - Week 4 assignment
 ========================================================
 author: 
 date: 1 DEC 2021
+autosize: true
+
+<style>
+.small-code pre code {
+  font-size: 1em;
+}
+</style>
 
 
 
@@ -34,16 +41,30 @@ Here's what you need
 
 Shiny App
 ========================================================
+
+<font size="4"> 
 Web application can be found here
 <https://pennyg7610.shinyapps.io/Week4HW/?_ga=2.59745197.1620275338.1638383547-321908426.1638383547>
+</font> 
+
+![plot of chunk unnamed-chunk-1](./Picture2.png)
+
+Function used in server.R
+========================================================
+class: small-code
 
 
-
-
-
-```
-Error in parse(text = x, srcfile = src) : <text>:2:2: unexpected '['
-1: 
-2: ![
-    ^
+```r
+function(input, output, session) {
+      iris.dataset= iris
+       iris.dataset$setosa <- iris.dataset$Species=="setosa"
+       iris.dataset$virginica <- iris.dataset$Species == "virginica"
+       iris.dataset$versicolor <- iris.dataset$Species == "versicolor"
+       iris.dataset
+#filter data then plot  
+data <- reactive({
+  req(input$species_list)
+ df<-iris.dataset%>% select( Sepal.Length, Sepal.Width, Petal.Length, Petal.Width)%>% filter(iris.dataset$Species %in% input$species_list)
+  
+})
 ```

@@ -21,9 +21,3 @@ data <- reactive({
     })
 }
 
-# 
-# iris.dataset<- iris[, c(input$xcol, input$ycol)]
-# iris.dataset$setosa <- iris.dataset$Species=="setosa"
-# iris.dataset$virginica = iris.dataset$Species == "virginica"
-# iris.dataset$versicolor = iris.dataset$Species == "versicolor"
-# iris.datase
